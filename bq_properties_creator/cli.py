@@ -25,8 +25,6 @@ bigquery.tables.count={{ bigquery_tables_count }}
 
     bq_results = get_bigquery_results(kargs['project_id'])
 
-    print('BigQuery results: {}'.format(bq_results))
-
     bigquery_tables_count, bigquery_tables_strings = build_bigquery_tables_strings(bq_results)
 
     kargs['bigquery_tables'] = bigquery_tables_strings
@@ -36,6 +34,8 @@ bigquery.tables.count={{ bigquery_tables_count }}
 
     with open(kargs['file_dest'], 'w', encoding='utf-8') as f:
         f.write(render)
+
+    print('Found {} BigQuery tables'.format(bq_results))
 
     return 0
 
