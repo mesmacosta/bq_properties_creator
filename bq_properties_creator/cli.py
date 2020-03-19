@@ -35,7 +35,7 @@ bigquery.tables.count={{ bigquery_tables_count }}
     with open(kargs['file_dest'], 'w', encoding='utf-8') as f:
         f.write(render)
 
-    print('Found {} BigQuery tables'.format(bq_results))
+    print('Found {} BigQuery tables'.format(bigquery_tables_count))
 
     return 0
 
