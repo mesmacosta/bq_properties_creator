@@ -11,6 +11,8 @@ from jinja2 import Template
 @click.option('--sample-size', default=0, help='Rows sample size.')
 @click.option('--shard-size', default=50, help='Shard size to distribute and bucket the rows.')
 @click.option('--verbose-logging', default='false', help='Enable verbose logging.')
+@click.option('--pipeline-wait-execution', default='false',
+              help='Forces to wait pipeline execution.')
 @click.option('--file-dest', default='config.properties',
               help='Destination where file will be created.')
 @click.option('--project-id', help='Your Google Project id.', required=True)
@@ -19,6 +21,7 @@ def main(**kargs):
 rows.sample.size={{ sample_size }}
 rows.shard.size={{ shard_size }}
 verbose.logging={{ verbose_logging }}
+pipeline.wait.execution={{ pipeline_wait_execution }}
 bigquery.tables={{ bigquery_tables }}
 bigquery.tables.count={{ bigquery_tables_count }}
 """)
